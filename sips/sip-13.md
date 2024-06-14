@@ -8,7 +8,7 @@
 |     Category | Framework                                                                                   |
 |      Created | 2023-11-09                                                                                  |
 | Comments-URI | https://sips.sui.io/comments-13                                                             |
-|       Status | Stagnant                                                                                       |
+|       Status | Withdrawn                                                                                       |
 |     Requires | N/A                                                                                         |
 
 ## Abstract
