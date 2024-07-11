@@ -495,7 +495,6 @@ module typus_framework::test_big_vector {
             let slice_size = (big_vector::slice_size(big_vector) as u64);
             let slice_idx = 0;
             let slice = big_vector::borrow_slice(big_vector, slice_idx);
-            let slice_length = big_vector::get_slice_length(slice);
             let i = 0;
             while (i < length) {
                 vector::push_back(
@@ -503,13 +502,12 @@ module typus_framework::test_big_vector {
                     vector[slice_idx, *big_vector::borrow_from_slice(slice, i % slice_size)],
                 );
                 // jump to next slice
-                if (i + 1 < length && i + 1 == slice_idx * slice_size + slice_length) {
+                if (i + 1 < length && (i + 1) % slice_size == 0) {
                     slice_idx = big_vector::get_slice_idx(slice) + 1;
                     slice = big_vector::borrow_slice(
                         big_vector,
                         slice_idx,
                     );
-                    slice_length = big_vector::get_slice_length(slice);
                 };
                 i = i + 1;
             };
